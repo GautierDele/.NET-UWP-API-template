@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApp</name>
+    </assembly>
+    <members>
+        <member name="T:WebApp.Controllers.MyEntityController">
+            <summary>
+            Controller to manage MyEntity
+            </summary>
+        </member>
+        <member name="M:WebApp.Controllers.MyEntityController.#ctor(WebApp.Models.Repository.IDataRepository{WebApp.Models.EntityFramework.MyEntity})">
+            <summary>
+            Constructor of MyEntityController.
+            </summary>
+            <param name="repository">The data repository</param>
+        </member>
+        <member name="M:WebApp.Controllers.MyEntityController.GetAllMyEntity">
+            <summary>
+            Get all accounts
+            </summary>
+            <returns>HTTP Response</returns>
+        </member>
+        <member name="M:WebApp.Controllers.MyEntityController.GetMyEntityById(System.Int32)">
+            <summary>
+            Get an account with its id.
+            </summary>
+            <param name="id">The id of the account</param>
+            <returns>HTTP Response</returns>
+        </member>
+        <member name="M:WebApp.Controllers.MyEntityController.PutMyEntity(System.Int32,WebApp.Models.EntityFramework.MyEntity)">
+            <summary>
+            Update an account.
+            </summary>
+            <param name="id">The id of the account</param>
+            <param name="myEntity">The new information of the account</param>
+            <returns>HTTP Response</returns>
+        </member>
+        <member name="M:WebApp.Controllers.MyEntityController.PostMyEntity(WebApp.Models.EntityFramework.MyEntity)">
+            <summary>
+            Adds an account to the database.
+            </summary>
+            <param name="myEntity">The new account</param>
+            <returns>HTTP Response</returns>
+        </member>
+    </members>
+</doc>
