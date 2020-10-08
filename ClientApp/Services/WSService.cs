@@ -15,14 +15,14 @@ namespace ClientApp
             _client.BaseAddress = new Uri("http://localhost:5000/api/");
         }
 
-        public async static Task<MyEntity> GetMyEntityById(int id)
+        public async static Task<Telephone> GetTelephoneByReference(string reference)
         {
-            var response = await _client.GetAsync($"MyEntity/{id}");
+            var response = await _client.GetAsync($"Telephone/ByReference/{reference}");
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await response.Content.ReadAsAsync<MyEntity>();
+            return await response.Content.ReadAsAsync<Telephone>();
         }
     }
 }

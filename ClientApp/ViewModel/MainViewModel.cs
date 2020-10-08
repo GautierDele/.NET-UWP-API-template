@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Windows.Input;
+using WebApp.Models.EntityFramework;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -9,26 +10,28 @@ namespace ClientApp.ViewModel
 {
     class MainViewModel : ViewModelBase
     {
-        private int _id;
+        private string _reference;
 
-        public int Id
+        public string Reference
         {
-            get { return _id; }
+            get { return _reference; }
             set
             {
-                _id = value;
-                RaisePropertyChanged("Id");
+                _reference = value;
+                RaisePropertyChanged("Reference");
             }
         }
 
+        public Telephone telephone { get; set; }
+
 
         public ICommand Add_Click { get; private set; }
-        public ICommand Navigate_Click { get; private set; }
+        public ICommand GetByReference_Click { get; private set; }
 
         public MainViewModel()
         {
             Add_Click = new RelayCommand(ActionAdd);
-            Navigate_Click = new RelayCommand(ActionNavigate);
+            GetByReference_Click = new RelayCommand(ActionGetTelephoneByReference);
         }
 
         private void ActionAdd()
@@ -36,9 +39,9 @@ namespace ClientApp.ViewModel
             throw new NotImplementedException("TODO");
         }
 
-        private void ActionNavigate()
+        private void ActionGetTelephoneByReference()
         {
-            (Window.Current.Content as Frame).Navigate(typeof(MainPage));
+            telephone = WSService.GetTelephoneByReference(Reference).Result;
         }
     }
 }

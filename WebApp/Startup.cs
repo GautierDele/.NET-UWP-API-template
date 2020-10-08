@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WebApp.Models.DataManager;
 using WebApp.Models.EntityFramework;
@@ -21,6 +22,8 @@ namespace WebApp
 
         public IConfiguration Configuration { get; }
 
+        public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -28,10 +31,12 @@ namespace WebApp
 
             services.AddDbContext<DSDBContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("DSdotnet"));
+                options.UseLoggerFactory(MyLoggerFactory)
+                    .EnableSensitiveDataLogging()
+                    .UseNpgsql(Configuration.GetConnectionString("DSdotnet"));
             });
 
-            services.AddScoped<IDataRepository<MyEntity>, MyEntityManager>();
+            services.AddScoped<IDataRepository<Telephone>, TelephoneManager>();
 
             services.AddSwaggerGen(c =>
             {

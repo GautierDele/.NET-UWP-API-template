@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace WebApp.Models.EntityFramework
 {
@@ -21,6 +22,7 @@ namespace WebApp.Models.EntityFramework
      */
     public partial class DSDBContext : DbContext
     {
+
         public DSDBContext()
         {
         }
@@ -29,10 +31,11 @@ namespace WebApp.Models.EntityFramework
         {
         }
 
-        public virtual DbSet<MyEntity> MyEntity { get; set; }
+        public virtual DbSet<Telephone> Telephone { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             //modelBuilder.Entity<Compte>(entity =>
             //{
             //    entity.HasIndex(c => c.Mel)

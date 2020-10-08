@@ -4,43 +4,50 @@
         <name>WebApp</name>
     </assembly>
     <members>
-        <member name="T:WebApp.Controllers.MyEntityController">
+        <member name="T:WebApp.Controllers.TelephoneController">
             <summary>
-            Controller to manage MyEntity
+            Controller to manage Telephone
             </summary>
         </member>
-        <member name="M:WebApp.Controllers.MyEntityController.#ctor(WebApp.Models.Repository.IDataRepository{WebApp.Models.EntityFramework.MyEntity})">
+        <member name="M:WebApp.Controllers.TelephoneController.#ctor(WebApp.Models.Repository.IDataRepository{WebApp.Models.EntityFramework.Telephone})">
             <summary>
-            Constructor of MyEntityController.
+            Constructor of TelephoneController.
             </summary>
             <param name="repository">The data repository</param>
         </member>
-        <member name="M:WebApp.Controllers.MyEntityController.GetAllMyEntity">
+        <member name="M:WebApp.Controllers.TelephoneController.GetAllTelephone">
             <summary>
-            Get all accounts
+            Get all telephones
             </summary>
             <returns>HTTP Response</returns>
         </member>
-        <member name="M:WebApp.Controllers.MyEntityController.GetMyEntityById(System.Int32)">
+        <member name="M:WebApp.Controllers.TelephoneController.GetTelephoneById(System.Int32)">
             <summary>
-            Get an account with its id.
+            Get an telephone with its id.
             </summary>
-            <param name="id">The id of the account</param>
+            <param name="id">The id of the telephone</param>
             <returns>HTTP Response</returns>
         </member>
-        <member name="M:WebApp.Controllers.MyEntityController.PutMyEntity(System.Int32,WebApp.Models.EntityFramework.MyEntity)">
+        <member name="M:WebApp.Controllers.TelephoneController.GetTelephoneByReference(System.String)">
             <summary>
-            Update an account.
+            Get an telephone with its reference.
             </summary>
-            <param name="id">The id of the account</param>
-            <param name="myEntity">The new information of the account</param>
+            <param name="reference">The reference of the Telephone</param>
             <returns>HTTP Response</returns>
         </member>
-        <member name="M:WebApp.Controllers.MyEntityController.PostMyEntity(WebApp.Models.EntityFramework.MyEntity)">
+        <member name="M:WebApp.Controllers.TelephoneController.PutTelephone(System.Int32,WebApp.Models.EntityFramework.Telephone)">
             <summary>
-            Adds an account to the database.
+            Update an telephone.
             </summary>
-            <param name="myEntity">The new account</param>
+            <param name="id">The id of the telephone</param>
+            <param name="telephone">The new information of the telephone</param>
+            <returns>HTTP Response</returns>
+        </member>
+        <member name="M:WebApp.Controllers.TelephoneController.PostTelephone(WebApp.Models.EntityFramework.Telephone)">
+            <summary>
+            Adds an telephone to the database.
+            </summary>
+            <param name="telephone">The new telephone</param>
             <returns>HTTP Response</returns>
         </member>
     </members>
